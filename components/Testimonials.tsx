@@ -33,10 +33,14 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-16 bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section id="testimonials" className="py-12 md:py-20 bg-surface">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-0.5 bg-accent"></div>
+            <span className="text-sm font-bold tracking-widest uppercase text-accent">Client Voices</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight max-w-3xl">
             Testimonials from Our Partners
           </h2>
           <p className="text-xl text-gray-600">
@@ -44,61 +48,72 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="relative bg-white rounded-lg shadow-xl p-8 md:p-12">
-          {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-32 h-16">
-              <Image
-                src={testimonials[activeIndex].logo}
-                alt={`${testimonials[activeIndex].company} logo`}
-                fill
-                className="object-contain"
-              />
+        <div className="relative">
+          {/* Testimonial Content */}
+          <div className="bg-white border-l-3 border-accent pl-12 pr-8 py-12 md:py-16">
+            {/* Logo */}
+            <div className="flex justify-start mb-8">
+              <div className="relative w-32 h-16">
+                <Image
+                  src={testimonials[activeIndex].logo}
+                  alt={`${testimonials[activeIndex].company} logo`}
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
             </div>
+
+            {/* Quote */}
+            <blockquote className="relative">
+              <div className="absolute -top-6 -left-4 text-6xl text-accent/20 font-serif">"</div>
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 relative z-10">
+                {testimonials[activeIndex].text}
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-0.5 bg-accent"></div>
+                <cite className="text-lg font-bold text-primary not-italic">
+                  {testimonials[activeIndex].company}
+                </cite>
+              </div>
+            </blockquote>
           </div>
 
-          {/* Testimonial Text */}
-          <blockquote className="text-center">
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic mb-6">
-              &quot;{testimonials[activeIndex].text}&quot;
-            </p>
-          </blockquote>
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <button
-              onClick={prevTestimonial}
-              className="p-2 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Dots */}
+          {/* Navigation */}
+          <div className="flex items-center justify-between mt-8">
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === activeIndex ? "bg-primary" : "bg-gray-300"
+                  className={`h-1 transition-all ${
+                    index === activeIndex ? "w-12 bg-accent" : "w-8 bg-gray-300"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
-            <button
-              onClick={nextTestimonial}
-              className="p-2 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors"
-              aria-label="Next testimonial"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={prevTestimonial}
+                className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:border-accent hover:text-accent transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <button
+                onClick={nextTestimonial}
+                className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:border-accent hover:text-accent transition-colors"
+                aria-label="Next testimonial"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

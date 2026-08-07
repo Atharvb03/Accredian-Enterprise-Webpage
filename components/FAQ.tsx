@@ -43,10 +43,14 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faqs" className="py-16 bg-white">
+    <section id="faqs" className="py-12 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-0.5 bg-accent"></div>
+            <span className="text-sm font-bold tracking-widest uppercase text-accent">FAQs</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight">
             Frequently Asked Questions
           </h2>
         </div>
@@ -55,40 +59,42 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="border-l-3 border-gray-200 hover:border-accent transition-all"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex justify-between items-center"
+                className="w-full px-8 py-6 text-left bg-surface hover:bg-white transition-colors flex justify-between items-start gap-4"
                 aria-expanded={openIndex === index}
               >
-                <div>
-                  <span className="text-sm text-primary font-semibold">
+                <div className="flex-1">
+                  <span className="inline-block text-xs font-bold tracking-wider uppercase text-accent mb-2">
                     {faq.category}
                   </span>
-                  <h3 className="text-lg font-semibold text-gray-900 mt-1">
+                  <h3 className="text-lg md:text-xl font-bold text-primary">
                     {faq.question}
                   </h3>
                 </div>
-                <svg
-                  className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ml-4 ${
-                    openIndex === index ? "transform rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                <div className="flex-shrink-0 w-8 h-8 bg-accent flex items-center justify-center text-white">
+                  <svg
+                    className={`w-5 h-5 transition-transform ${
+                      openIndex === index ? "transform rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
               </button>
               {openIndex === index && (
-                <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                <div className="px-8 py-6 bg-white border-t border-gray-200">
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>

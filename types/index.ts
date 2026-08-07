@@ -1,9 +1,13 @@
 export interface LeadFormData {
   name: string;
   email: string;
+  countryCode: string;
+  phoneNumber: string;
   company: string;
-  phone: string;
-  message: string;
+  domain: string;
+  numberOfCandidates: string;
+  modeOfDelivery: string;
+  location: string;
 }
 
 export interface ApiResponse {

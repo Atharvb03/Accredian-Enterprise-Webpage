@@ -23,10 +23,15 @@ export default function TargetAudience() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-16 text-center max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-12 h-0.5 bg-accent"></div>
+            <span className="text-sm font-bold tracking-widest uppercase text-accent">Target Audience</span>
+            <div className="w-12 h-0.5 bg-accent"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight">
             Who Should Join?
           </h2>
           <p className="text-xl text-gray-600">
@@ -38,13 +43,21 @@ export default function TargetAudience() {
           {audiences.map((audience, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow text-center"
+              className="group relative"
             >
-              <div className="text-5xl mb-4">{audience.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {audience.title}
-              </h3>
-              <p className="text-gray-600">{audience.description}</p>
+              {/* Card */}
+              <div className="relative bg-surface border-l-3 border-accent pl-8 pr-6 py-8 h-full hover:bg-white transition-all">
+                <div className="text-5xl mb-6">{audience.icon}</div>
+                <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                  {audience.title}
+                </h3>
+                <p className="text-gray-600">{audience.description}</p>
+                
+                {/* Number */}
+                <div className="absolute -left-4 top-8 w-8 h-8 bg-accent flex items-center justify-center text-white font-bold text-sm">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+              </div>
             </div>
           ))}
         </div>

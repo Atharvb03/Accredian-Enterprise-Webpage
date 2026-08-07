@@ -21,13 +21,17 @@ export default function DeliveryProcess() {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 bg-gray-50">
+    <section id="how-it-works" className="py-12 md:py-20 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-0.5 bg-accent"></div>
+            <span className="text-sm font-bold tracking-widest uppercase text-accent">Our Process</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight max-w-3xl">
             How We Deliver Results That Matter?
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 max-w-2xl">
             A Structured Three-Step Approach to Skill Development
           </p>
         </div>
@@ -36,16 +40,26 @@ export default function DeliveryProcess() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow relative"
+              className="group relative"
             >
-              <div className="absolute -top-4 left-8 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
-                {step.step}
+              {/* Connecting line (except for last item) */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gray-300 -z-10"></div>
+              )}
+              
+              {/* Card */}
+              <div className="relative bg-white border border-gray-200 p-8 hover:border-accent transition-all h-full">
+                {/* Large step number */}
+                <div className="absolute -top-6 -left-6 w-16 h-16 bg-accent flex items-center justify-center shadow-lg">
+                  <span className="text-3xl font-bold text-white">{step.step}</span>
+                </div>
+                
+                <div className="text-5xl mb-6 mt-6">{step.icon}</div>
+                <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
-              <div className="text-5xl mb-4 mt-4">{step.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {step.title}
-              </h3>
-              <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
         </div>

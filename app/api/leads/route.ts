@@ -3,9 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 interface LeadData {
   name: string;
   email: string;
+  countryCode: string;
+  phoneNumber: string;
   company: string;
-  phone: string;
-  message: string;
+  domain: string;
+  numberOfCandidates: string;
+  modeOfDelivery: string;
+  location: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -13,9 +17,9 @@ export async function POST(request: NextRequest) {
     const body: LeadData = await request.json();
 
     // Validate required fields
-    const { name, email, company, phone, message } = body;
+    const { name, email, countryCode, phoneNumber, company, domain, numberOfCandidates, modeOfDelivery, location } = body;
 
-    if (!name || !email || !company || !phone || !message) {
+    if (!name || !email || !countryCode || !phoneNumber || !company || !domain || !numberOfCandidates || !modeOfDelivery || !location) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -31,9 +35,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate phone format (basic validation)
-    const phoneRegex = /^\+?[\d\s\-()]{10,}$/;
-    if (!phoneRegex.test(phone)) {
+    // Validate phone format (basic validation - digits only)
+    const phoneRegex = /^\d{7,15}$/;
+    if (!phoneRegex.test(phoneNumber)) {
       return NextResponse.json(
         { success: false, message: "Invalid phone number format" },
         { status: 400 }
@@ -44,9 +48,13 @@ export async function POST(request: NextRequest) {
     const sanitizedData = {
       name: name.trim().substring(0, 100),
       email: email.trim().toLowerCase().substring(0, 100),
+      countryCode: countryCode.trim().substring(0, 10),
+      phoneNumber: phoneNumber.trim().substring(0, 15),
       company: company.trim().substring(0, 100),
-      phone: phone.trim().substring(0, 20),
-      message: message.trim().substring(0, 1000),
+      domain: domain.trim().substring(0, 100),
+      numberOfCandidates: numberOfCandidates.trim().substring(0, 10),
+      modeOfDelivery: modeOfDelivery.trim().substring(0, 20),
+      location: location.trim().substring(0, 100),
     };
 
     // Mock database operation
@@ -58,6 +66,9 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
       name: sanitizedData.name,
       company: sanitizedData.company,
+      domain: sanitizedData.domain,
+      modeOfDelivery: sanitizedData.modeOfDelivery,
+      numberOfCandidates: sanitizedData.numberOfCandidates,
       // Don't log sensitive info like email/phone in production
     });
 
