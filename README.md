@@ -4,11 +4,11 @@ A modern, responsive enterprise website recreation built with Next.js, inspired 
 
 ## 🌐 Live Demo
 
-**TODO:** Add Vercel deployment URL after deployment
+**Live Link:** https://vercel.com/atharvb03-3092s-projects/accredian-enterprise-webpage
 
 ## 📦 Repository
 
-**TODO:** Add GitHub repository URL
+**Github Repo:** https://github.com/Atharvb03/Accredian-Enterprise-Webpage
 
 ## 🛠️ Tech Stack
 
