@@ -4,7 +4,7 @@ A modern, responsive enterprise website recreation built with Next.js, inspired 
 
 ## 🌐 Live Demo
 
-**Live Link:** https://vercel.com/atharvb03-3092s-projects/accredian-enterprise-webpage
+**Live Link:** https://accredian-enterprise-webpage.vercel.app/
 
 ## 📦 Repository
 
