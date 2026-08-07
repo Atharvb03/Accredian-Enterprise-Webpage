@@ -1,0 +1,47 @@
+export default function Stats() {
+  const stats = [
+    {
+      value: "10K+",
+      label: "Professionals Trained For Exceptional Career Success",
+    },
+    {
+      value: "200+",
+      label: "Sessions Delivered With Unmatched Learning Excellence",
+    },
+    {
+      value: "5K+",
+      label: "Active Learners Engaged In Dynamic Courses",
+    },
+  ];
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Track Record
+          </h2>
+          <p className="text-xl text-gray-600">
+            The Numbers Behind Our Success
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="text-center p-8 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-100 hover:shadow-lg transition-shadow"
+            >
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-4">
+                {stat.value}
+              </div>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
