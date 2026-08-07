@@ -158,7 +158,7 @@ export default function LeadForm() {
 
       if (response.ok) {
         setSubmitStatus("success");
-        setSubmitMessage(data.message || "Thank you! We'll be in touch soon.");
+        setSubmitMessage(data.message || "Thank you! We&apos;ll be in touch soon.");
         setFormData({
           name: "",
           email: "",
@@ -186,7 +186,7 @@ export default function LeadForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <h3 className="text-2xl font-bold text-primary mb-2">Contact Us</h3>
-        <p className="text-gray-600">Fill out the form and we'll be in touch soon</p>
+        <p className="text-gray-600">Fill out the form and we&apos;ll be in touch soon</p>
       </div>
 
       {/* Name */}

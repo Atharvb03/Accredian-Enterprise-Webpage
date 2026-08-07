@@ -15,7 +15,7 @@ export default function Testimonials() {
     {
       company: "Bayer",
       logo: "https://storage.googleapis.com/accredian-assets/Frontend_Assests/Images/Accredian-react-site-images/other/bayer.svg",
-      text: "Accredian's commitment to excellence is unmatched. They consistently go the extra mile to ensure our needs are met and exceeded, providing reliable support and high-quality service every step of the way.",
+      text: "Accredian&apos;s commitment to excellence is unmatched. They consistently go the extra mile to ensure our needs are met and exceeded, providing reliable support and high-quality service every step of the way.",
     },
     {
       company: "Reliance",
@@ -65,7 +65,7 @@ export default function Testimonials() {
 
             {/* Quote */}
             <blockquote className="relative">
-              <div className="absolute -top-6 -left-4 text-6xl text-accent/20 font-serif">"</div>
+              <div className="absolute -top-6 -left-4 text-6xl text-accent/20 font-serif">&quot;</div>
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 relative z-10">
                 {testimonials[activeIndex].text}
               </p>
