@@ -22,24 +22,48 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link
-              href="#solutions"
+              href="#home"
               className="text-gray-700 hover:text-primary transition-colors"
             >
-              Solutions
+              Home
             </Link>
             <Link
-              href="#domains"
+              href="#stats"
               className="text-gray-700 hover:text-primary transition-colors"
             >
-              Domains
+              Stats
             </Link>
             <Link
-              href="#approach"
+              href="#clients"
               className="text-gray-700 hover:text-primary transition-colors"
             >
-              Approach
+              Clients
+            </Link>
+            <Link
+              href="#accredian-edge"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              Accredian Edge
+            </Link>
+            <Link
+              href="#cat"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              CAT
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              How It Works
+            </Link>
+            <Link
+              href="#faqs"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              FAQs
             </Link>
             <Link
               href="#testimonials"
@@ -88,25 +112,53 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="px-4 pt-2 pb-4 space-y-2">
             <Link
-              href="#solutions"
+              href="#home"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Solutions
+              Home
             </Link>
             <Link
-              href="#domains"
+              href="#stats"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Domains
+              Stats
             </Link>
             <Link
-              href="#approach"
+              href="#clients"
               className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Approach
+              Clients
+            </Link>
+            <Link
+              href="#accredian-edge"
+              className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Accredian Edge
+            </Link>
+            <Link
+              href="#cat"
+              className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CAT
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              How It Works
+            </Link>
+            <Link
+              href="#faqs"
+              className="block px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQs
             </Link>
             <Link
               href="#testimonials"
